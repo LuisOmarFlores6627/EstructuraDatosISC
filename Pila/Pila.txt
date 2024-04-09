@@ -1,0 +1,16 @@
+Las pilas son estructuras de datos lineales, como los arreglos, ya que los componentes ocupan lugares sucesivos 
+en la estructura y cada uno de ellos tiene un único sucesor y un único predecesor, con excepción del último y
+del primero, respectivamente. Una pila se define formalmente como una colección de datos a los cuales se puede
+acceder mediante un extremo, que se conoce generalmente como tope.
+Las pilas no son estructuras fundamentales de datos Para su representación requieren el
+uso de otras estructuras de datos, como arreglos o listas.
+Pilas:
+Implementación de Pilas:
+-Constructor
+-Está vacía
+-Agregar elemento
+-Eliminar elemento
+-Mostrar los datos de la pila
+-Destructor
+-Obtener el nodo del tope
+-Mover la pila p1 a la pila actual
