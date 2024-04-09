@@ -1,1 +1,104 @@
+-----Clase main------
+public class ImplementacionCola {
+
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamaño de la cola: ");
+        int size = scanner.nextInt();
+
+        TDA tdaCola = new TDA(size);
+
+        System.out.println("Ingrese valores para agregar a la cola (ingrese -1 para finalizar):");
+        int value;
+        do {
+            System.out.print("Ingrese un valor: ");
+            value = scanner.nextInt();
+            if (value != -1) {
+                tdaCola.encolar(value);
+            }
+        } while (value != -1);
+
+        System.out.println("Realizando operaciones desencolar:");
+        while (!tdaCola.estaVacia()) {
+            System.out.println("Valor obtenido: " + tdaCola.desencolar());
+        } 
+    }
+    
+}
+--------------------------------------------------------------------------------
+---------Cola--------------
+public class Cola 
+{
+    private int[] array;
+    private int front; // Indica el frente de la cola
+    private int rear; // Indica el final de la cola
+    private int maxSize;
+
+    public Cola(int size) {
+        maxSize = size;
+        array = new int[maxSize];
+        front = 0;
+        rear = -1;
+    }
+
+    public void encolar(int value) {
+        if (!estaLlena()) {
+            rear = (rear + 1) % maxSize;
+            array[rear] = value;
+        } else {
+            System.out.println("La cola está llena, no se puede agregar más elementos.");
+        }
+    }
+
+    public int desencolar() {
+        if (!estaVacia()) {
+            int temp = array[front];
+            front = (front + 1) % maxSize;
+            return temp;
+        } else {
+            System.out.println("La cola está vacía.");
+            return -1; // Indicador de error
+        }
+    }
+
+    public boolean estaVacia() {
+        return (rear + 1) % maxSize == front;
+    }
+
+    public boolean estaLlena() {
+        return (rear + 2) % maxSize == front;
+    }     
+}
+-----------------------------------------------------------
+------TDA----------
+public class TDA 
+{
+  private Cola cola;
+
+    public TDA(int size) {
+        cola = new Cola(size);
+    }
+
+    public void encolar(int value) { 
+        cola.encolar(value);
+    }
+
+    public int desencolar() {
+        return cola.desencolar();
+    }
+
+    public boolean estaVacia() {
+        return cola.estaVacia();
+    }
+
+    public boolean estaLlena() {
+        return cola.estaLlena();
+    }     
+}
+--------------------------------------------
+
+
+
 
