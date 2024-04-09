@@ -1,0 +1,93 @@
+Implementación TDA codigo de una Pila----> JAVA
+-----------------------------------------------------------------------
+class Nodo {
+    int dato;
+    Nodo siguiente;
+
+    public Nodo(int dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+public class Pila {
+    private Nodo cabeza;
+    private int tamaño;
+
+    public Pila() {
+        this.cabeza = null;
+        this.tamaño = 0;
+    }
+
+    public void push(int dato) {
+        Nodo nuevoNodo = new Nodo(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+        } else {
+            nuevoNodo.siguiente = cabeza;
+            cabeza = nuevoNodo;
+        }
+        tamaño++;
+    }
+
+    public int pop() {
+        if (cabeza == null) {
+            System.out.println("La pila está vacía");
+            return -1; // o lanzar una excepción
+        } else {
+            int datoEliminado = cabeza.dato;
+            cabeza = cabeza.siguiente;
+            tamaño--;
+            return datoEliminado;
+        }
+    }
+
+    public int peek() {
+        if (cabeza == null) {
+            System.out.println("La pila está vacía");
+            return -1; // o lanzar una excepción
+        } else {
+            return cabeza.dato;
+        }
+    }
+
+    public boolean isEmpty() {
+        return cabeza == null;
+    }
+
+    public int size() {
+        return tamaño;
+    }
+
+    public void imprimirPila() {
+        Nodo temp = cabeza;
+        System.out.print("Pila: ");
+        while (temp != null) {
+            System.out.print(temp.dato + " ");
+            temp = temp.siguiente;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Pila pila = new Pila();
+
+        pila.push(5);
+        pila.push(10);
+        pila.push(15);
+        pila.push(20);
+
+        pila.imprimirPila();
+
+        System.out.println("Tamaño de la pila: " + pila.size());
+
+        System.out.println("Elemento en la cima de la pila: " + pila.peek());
+
+        System.out.println("Elemento extraído de la pila: " + pila.pop());
+
+        pila.imprimirPila();
+
+        System.out.println("¿La pila está vacía? " + pila.isEmpty());
+    }
+}
+---------------------------------------------------------------------------------------------------------
