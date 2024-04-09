@@ -91,3 +91,71 @@ public class Pila {
     }
 }
 ---------------------------------------------------------------------------------------------------------
+---------Algoritmo-------
+Pila:
+  Propiedades:
+    - cabeza: Nodo
+    - tamaño: int
+
+Nodo:
+  Propiedades:
+    - dato: int
+    - siguiente: Nodo
+
+Operaciones:
+  push:
+    Entrada: dato (int)
+    Salida: vacío
+    Algoritmo:
+      - Crear un nuevo Nodo con el dato proporcionado
+      - Si la cabeza de la pila es nula:
+        - Establecer el nuevo Nodo como la cabeza de la pila
+      - Sino:
+        - Establecer el siguiente del nuevo Nodo como la cabeza actual de la pila
+        - Actualizar la cabeza de la pila con el nuevo Nodo
+      - Incrementar el tamaño de la pila
+
+  pop:
+    Entrada: vacío
+    Salida: dato (int)
+    Algoritmo:
+      - Si la cabeza de la pila es nula:
+        - Imprimir "La pila está vacía"
+        - Retornar -1 o lanzar una excepción
+      - Sino:
+        - Guardar el dato de la cabeza de la pila
+        - Actualizar la cabeza de la pila con el siguiente Nodo
+        - Decrementar el tamaño de la pila
+        - Retornar el dato guardado
+
+  peek:
+    Entrada: vacío
+    Salida: dato (int)
+    Algoritmo:
+      - Si la cabeza de la pila es nula:
+        - Imprimir "La pila está vacía"
+        - Retornar -1 o lanzar una excepción
+      - Sino:
+        - Retornar el dato de la cabeza de la pila
+
+  isEmpty:
+    Entrada: vacío
+    Salida: boolean
+    Algoritmo:
+      - Retornar true si la cabeza de la pila es nula, false de lo contrario
+
+  size:
+    Entrada: vacío
+    Salida: tamaño (int)
+    Algoritmo:
+      - Retornar el tamaño de la pila
+
+  imprimirPila:
+    Entrada: vacío
+    Salida: vacío
+    Algoritmo:
+      - Crear un Nodo temporal y asignarlo a la cabeza de la pila
+      - Imprimir "Pila: " seguido de los datos de cada Nodo hasta que el temporal sea nulo
+-----------------------------------------------------------------------------------------------------------------
+
+
