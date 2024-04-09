@@ -1,1 +1,101 @@
+Implementación TDA codigo de una Cola----> JAVA
+import java.util.LinkedList;
+
+public class Cola {
+    private LinkedList<Integer> elementos;
+
+    public Cola() {
+        elementos = new LinkedList<>();
+    }
+
+    public boolean isEmpty() {
+        return elementos.isEmpty();
+    }
+
+    public int size() {
+        return elementos.size();
+    }
+
+    public void enqueue(int elemento) {
+        elementos.addLast(elemento);
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+        return elementos.removeFirst();
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+        return elementos.getFirst();
+    }
+
+    public void print() {
+        System.out.println(elementos);
+    }
+
+    public static void main(String[] args) {
+        Cola cola = new Cola();
+        cola.enqueue(1);
+        cola.enqueue(2);
+        cola.enqueue(3);
+        cola.enqueue(4);
+
+        System.out.println("Elementos de la cola:");
+        cola.print();
+
+        System.out.println("Tamaño de la cola: " + cola.size());
+
+        System.out.println("Elemento en el frente de la cola: " + cola.peek());
+
+        System.out.println("Desencolando elementos:");
+        while (!cola.isEmpty()) {
+            System.out.println(cola.dequeue());
+        }
+    }
+}
+--------------------------------------------------------------
+------Resultado en pantalla------------
+Elementos de la cola:
+[1, 2, 3, 4]
+Tamaño de la cola: 4
+Elemento en el frente de la cola: 1
+Desencolando elementos:
+1
+2
+3
+4
+------------------------------------------------------------
+
+----------Algoritmo--------------
+Cola:
+  propiedades:
+    elementos: ListaEnlazada
+  métodos:
+    - isEmpty:
+        descripción: "Comprueba si la cola está vacía."
+        tipo_retorno: booleano
+    - size:
+        descripción: "Obtiene el tamaño de la cola."
+        tipo_retorno: entero
+    - enqueue:
+        descripción: "Agrega un elemento al final de la cola."
+        parámetros:
+          - nombre: elemento
+            descripción: "Elemento a agregar a la cola."
+            tipo: entero
+    - dequeue:
+        descripción: "Elimina y devuelve el elemento del frente de la cola."
+        tipo_retorno: entero
+    - peek:
+        descripción: "Devuelve el elemento del frente de la cola sin eliminarlo."
+        tipo_retorno: entero
+    - print:
+        descripción: "Imprime los elementos de la cola."
+--------------------------------------------------------------
+
 
