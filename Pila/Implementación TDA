@@ -91,6 +91,14 @@ public class Pila {
     }
 }
 ---------------------------------------------------------------------------------------------------------
+-----Salida en consola----
+Pila: 20 15 10 5 
+Tamaño de la pila: 4
+Elemento en la cima de la pila: 20
+Elemento extraído de la pila: 20
+Pila: 15 10 5 
+¿La pila está vacía? false
+
 ---------Algoritmo-------
 Pila:
   Propiedades:
