@@ -1,1 +1,104 @@
+--------Clase Main-----------
+public class ImplementacionPila {
+
+    public static void main(String[] args) 
+    {
+         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamaño de la pila: ");
+        int size = scanner.nextInt();
+
+        tda tda = new tda(size);
+
+        System.out.println("Ingrese valores para agregar a la pila (ingrese -1 para finalizar):");
+        int value; 
+        do { 
+            System.out.print("Ingrese un valor: ");
+            value = scanner.nextInt();
+            if (value != -1) {
+                tda.push(value);
+            }
+        } while (value != -1);
+
+        System.out.println("Realizando operaciones pop:");
+        while (!tda.isEmpty()) {
+            System.out.println("Valor obtenido: " + tda.pop());
+        }  
+    } 
+    
+}
+-----------------------------------------------------------------------------------------------------
+
+-------------Clase TDA-------------------
+public class tda 
+{ 
+   private Pila pila;
+    private int maxSize;
+
+    public tda(int size) {
+        maxSize = size; 
+        pila = new Pila(maxSize);
+    }
+
+    public void push(int value) {
+        pila.push(value);
+    }
+
+    public int pop() {
+        return pila.pop();
+    }
+
+    public boolean isEmpty() {
+        return pila.isEmpty();
+    }
+
+    public boolean isFull() {
+        return pila.isFull();
+    }
+
+    public int maxSize() {
+        return maxSize;
+    }     
+}
+-------------------------------------------------------------------------------
+
+--------------Clase Pila---------------
+public class Pila 
+{
+   private int[] array;
+    private int top;
+    private int maxSize;
+
+    public Pila(int size) {
+        maxSize = size;
+        array = new int[maxSize]; 
+        top = -1;
+    }
+
+    public void push(int value) {
+        if (!isFull()) {
+            array[++top] = value;
+        } else {
+            System.out.println("La pila está llena, no se puede agregar más elementos.");
+        }
+    }
+
+    public int pop() {
+        if (!isEmpty()) {
+            return array[top--];
+        } else {
+            System.out.println("La pila está vacía.");
+            return -1; // Indicador de error
+        }
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }     
+}
+----------------------------------------------------------------------------------------
 
