@@ -1,0 +1,10 @@
+Una cola es una estructura de datos que almacena elementos en una lista y permite acceder a los datos por uno de los dos extremos de la lista. 
+Un elemento se inserta en la cola (parte final) de la lista y se suprime o elimina por la frente (parte inicial,cabeza) de la lista.
+Los elementos se eliminan (se quitan)de la cola en el mismo orden en que se almacenan y, por consiguiente, una cola es una estructura de tipo FIFO
+(first-in-first-out, primero en entrar, Primero en salir o bien primero en llegar/primero en ser servido). El servicio de atención a clientes es un
+ejemplo típico de cola o el cajero de un banco.
+
+Colas
+Los datos se almacenan de un modo lineal y el acceso a los datos solo está permitido en los extremos de la cola.
+Los nodos de una cola se eliminan solo desde el principio (cabeza) de la misma y se insertan sólo al final (cola) de ésta.
+Ejemplos del uso de colas son: la cola de impresión, los paquetes de información en la red, peticiones de clientes a un servidor de archivos en una red.
