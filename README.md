@@ -12,4 +12,5 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
    - [Implementación Clases](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Colas/Implementaci%C3%B3n%20Clases) 
 3. [Listas](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Listas/Listas.txt)
    - [Implementación TDA](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Listas/Implementaci%C3%B3n%20TDA) 
+   - [Implementación Clases](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Listas/Implementaci%C3%B3n%20Clases) 
 
