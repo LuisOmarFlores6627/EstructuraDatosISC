@@ -1,1 +1,93 @@
-Implementación TDA codigo de una Lista----> JAVA
+Implementación TDA codigo de una Lista Dinámica -> Listas enlazadas----> JAVA
+// Definición de la clase Nodo
+class Nodo {
+    int dato;
+    Nodo siguiente;
+
+    // Constructor
+    public Nodo(int dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+// Definición de la clase ListaEnlazada
+public class ListaEnlazada {
+    Nodo cabeza;
+
+    // Constructor
+    public ListaEnlazada() {
+        this.cabeza = null;
+    }
+
+    // Método para agregar un elemento al final de la lista
+    public void agregarElemento(int dato) {
+        Nodo nuevoNodo = new Nodo(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+        } else {
+            Nodo temp = cabeza;
+            while (temp.siguiente != null) {
+                temp = temp.siguiente;
+            }
+            temp.siguiente = nuevoNodo;
+        }
+    }
+
+    // Método para imprimir los elementos de la lista
+    public void imprimirLista() {
+        Nodo temp = cabeza;
+        while (temp != null) {
+            System.out.print(temp.dato + " ");
+            temp = temp.siguiente;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        ListaEnlazada lista = new ListaEnlazada();
+        lista.agregarElemento(1);
+        lista.agregarElemento(2);
+        lista.agregarElemento(3);
+        lista.imprimirLista(); 
+    }
+}
+-----------------------------------------------------------------
+----Salida en consola-----
+1 2 3
+----------------------------------------------
+
+----Algoritmo-------------
+ListaEnlazada:
+  cabeza: null
+  
+Nodo:
+  properties:
+    dato: int
+    siguiente: Nodo
+
+agregarElemento(dato):
+  - nuevoNodo = Nodo(dato)
+  - if cabeza == null:
+      - cabeza = nuevoNodo
+  - else:
+      - temp = cabeza
+      - while temp.siguiente != null:
+          - temp = temp.siguiente
+      - temp.siguiente = nuevoNodo
+
+imprimirLista():
+  - temp = cabeza
+  - while temp != null:
+      - print temp.dato
+      - temp = temp.siguiente
+
+main():
+  - lista = ListaEnlazada()
+  - lista.agregarElemento(1)
+  - lista.agregarElemento(2)
+  - lista.agregarElemento(3)
+  - lista.imprimirLista()
+-----------------------------------------------------------
+
+
