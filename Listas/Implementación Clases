@@ -1,1 +1,82 @@
+-----------------------------------------------------------
+import java.util.Scanner;
+// Clase ListaEnlazada
+class ListaEnlazada {
+    private class Nodo {
+        int dato;
+        Nodo siguiente;
 
+        // Constructor
+        public Nodo(int dato) {
+            this.dato = dato;
+            this.siguiente = null;
+        }
+    }
+
+    Nodo cabeza;
+
+    // Constructor
+    public ListaEnlazada() {
+        this.cabeza = null;
+    }
+
+    // Método para insertar al principio de la lista
+    public void insertarAlPrincipio(int dato) {
+        Nodo nuevoNodo = new Nodo(dato);
+        nuevoNodo.siguiente = cabeza;
+        cabeza = nuevoNodo;
+    }
+
+    // Método para imprimir la lista
+    public void imprimirLista() {
+        Nodo temp = cabeza;
+        while (temp != null) {
+            System.out.print(temp.dato + " ");
+            temp = temp.siguiente;
+        }
+        System.out.println();
+    }
+}
+------------------------------------------------------------------------
+// Clase TDA_ListaEnlazada
+class TDA_ListaEnlazada {
+    private ListaEnlazada lista;
+
+    // Constructor
+    public TDA_ListaEnlazada() {
+        lista = new ListaEnlazada();
+    }
+
+    // Método para insertar al principio de la lista
+    public void insertarAlPrincipio(int dato) {
+        lista.insertarAlPrincipio(dato);
+    }
+
+    // Método para imprimir la lista
+    public void imprimirLista() {
+        lista.imprimirLista();
+    }
+}
+---------------------------------------------------------------
+// Clase Main
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        TDA_ListaEnlazada tdaLista = new TDA_ListaEnlazada();
+
+        System.out.print("Ingrese la cantidad de valores que desea ingresar: ");
+        int cantidad = scanner.nextInt();
+
+        System.out.println("Ingrese los valores:");
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Valor " + (i + 1) + ": ");
+            int valor = scanner.nextInt();
+            tdaLista.insertarAlPrincipio(valor);
+        }
+
+        // Imprimir la lista
+        System.out.println("Lista:");
+        tdaLista.imprimirLista();
+    }
+}
+-------------------------------------------------------------------------
