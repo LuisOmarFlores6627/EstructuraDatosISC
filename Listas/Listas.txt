@@ -1,0 +1,39 @@
+->Listas<-
+----Listas dinámicas------
+Las listas dinámicas en programación, también conocidas como estructuras de datos dinámicas, son una forma de organizar y 
+gestionar colecciones de elementos de manera flexible. A diferencia de las listas estáticas, que tienen un tamaño fijo, las 
+listas dinámicas pueden crecer o reducirse según sea necesario durante la ejecución del programa. Esto las hace extremadamente 
+versátiles y adecuadas para una amplia variedad de aplicaciones.
+*Tipos de listas dinámicas
+Existen varios tipos de listas dinámicas, cada una con sus propias características y ventajas. Algunos de los tipos más comunes son:
+1.Listas enlazadas: Las listas enlazadas consisten en nodos que se conectan entre sí, donde cada nodo contiene un elemento y 
+una referencia al siguiente nodo en la lista. Esto permite una fácil inserción y eliminación de elementos en cualquier posición 
+de la lista.
+2.Listas doblemente enlazadas: Similar a las listas enlazadas, pero cada nodo también tiene una referencia al nodo anterior. 
+Esto facilita la navegación en ambas direcciones, pero consume más memoria que las listas enlazadas simples.
+3.Listas circulares: En estas listas, el último nodo apunta de nuevo al primer nodo, creando un ciclo. Son útiles en situaciones
+en las que se necesita un acceso continuo a los elementos de la lista.
+4.Listas basadas en arrays dinámicos: Estas listas se implementan utilizando arrays que pueden redimensionarse automáticamente a 
+medida que se agregan o eliminan elementos. Son eficientes en cuanto a memoria y proporcionan acceso aleatorio rápido a los elementos.
+
+-------Listas estáticas----------
+
+En programación, una lista estática se refiere a una estructura de datos en la que el tamaño de la lista se define en tiempo de
+compilación y no puede cambiar durante la ejecución del programa. 
+Los tipos de lista estática no son tan variados como los de lista dinámica, pero aún así, hay algunas variaciones que vale 
+la pena mencionar:
+1.Arreglo estático:
+La forma más básica de una lista estática es simplemente un arreglo de tamaño fijo. En este tipo de lista, el tamaño se fija 
+en tiempo de compilación y no puede cambiar durante la ejecución del programa.
+2.Matriz estática:
+Una matriz estática es una lista de listas estáticas. Esencialmente, es una matriz multidimensional con un tamaño fijo en cada 
+dimensión. Cada dimensión puede considerarse como una lista estática.
+3.Lista estática de registros o estructuras:
+En lenguajes como C o C++, puedes definir una lista estática de estructuras o registros. Por ejemplo, podrías tener una lista 
+estática de personas, donde cada elemento de la lista es una estructura que contiene campos como nombre, edad, etc.
+4.Lista estática de tamaño flexible (en algunos lenguajes):
+Algunos lenguajes ofrecen la posibilidad de definir listas estáticas con un tamaño que se puede especificar en tiempo de 
+ejecución, aunque sigue siendo estático una vez que se crea. Esto es útil cuando sabes que el tamaño máximo posible de la 
+lista pero no lo sabes hasta que se ejecuta el programa.
+
+
