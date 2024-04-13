@@ -1,1 +1,184 @@
+------->TDA<----------
+interface Arbol {
+    void insertar(int valor);
+    boolean buscar(int valor);
+    void eliminar(int valor);
+    void inorder();
+    void preorder();
+    void postorder();
+}
 
+class Nodo {
+    int valor;
+    Nodo izquierda, derecha;
+
+    public Nodo(int valor) {
+        this.valor = valor;
+        izquierda = derecha = null;
+    }
+}
+
+class ArbolBinario implements Arbol {
+    private Nodo raiz;
+
+    public ArbolBinario() {
+        raiz = null;
+    }
+
+    @Override
+    public void insertar(int valor) {
+        raiz = insertarNodo(raiz, valor);
+    }
+
+    private Nodo insertarNodo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return new Nodo(valor);
+        }
+
+        if (valor < nodo.valor) {
+            nodo.izquierda = insertarNodo(nodo.izquierda, valor);
+        } else if (valor > nodo.valor) {
+            nodo.derecha = insertarNodo(nodo.derecha, valor);
+        }
+
+        return nodo;
+    }
+
+    @Override
+    public boolean buscar(int valor) {
+        return buscarNodo(raiz, valor);
+    }
+
+    private boolean buscarNodo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return false;
+        }
+
+        if (valor == nodo.valor) {
+            return true;
+        } else if (valor < nodo.valor) {
+            return buscarNodo(nodo.izquierda, valor);
+        } else {
+            return buscarNodo(nodo.derecha, valor);
+        }
+    }
+
+    @Override
+    public void eliminar(int valor) {
+        raiz = eliminarNodo(raiz, valor);
+    }
+
+    private Nodo eliminarNodo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            return null;
+        }
+
+        if (valor < nodo.valor) {
+            nodo.izquierda = eliminarNodo(nodo.izquierda, valor);
+        } else if (valor > nodo.valor) {
+            nodo.derecha = eliminarNodo(nodo.derecha, valor);
+        } else {
+            if (nodo.izquierda == null) {
+                return nodo.derecha;
+            } else if (nodo.derecha == null) {
+                return nodo.izquierda;
+            }
+
+            nodo.valor = encontrarMinimo(nodo.derecha).valor;
+            nodo.derecha = eliminarNodo(nodo.derecha, nodo.valor);
+        }
+        return nodo;
+    }
+
+    private Nodo encontrarMinimo(Nodo nodo) {
+        while (nodo.izquierda != null) {
+            nodo = nodo.izquierda;
+        }
+        return nodo;
+    }
+
+    @Override
+    public void inorder() {
+        inorderRec(raiz);
+    }
+
+    private void inorderRec(Nodo nodo) {
+        if (nodo != null) {
+            inorderRec(nodo.izquierda);
+            System.out.print(nodo.valor + " ");
+            inorderRec(nodo.derecha);
+        }
+    }
+
+    @Override
+    public void preorder() {
+        preorderRec(raiz);
+    }
+
+    private void preorderRec(Nodo nodo) {
+        if (nodo != null) {
+            System.out.print(nodo.valor + " ");
+            preorderRec(nodo.izquierda);
+            preorderRec(nodo.derecha);
+        }
+    }
+
+    @Override
+    public void postorder() {
+        postorderRec(raiz);
+    }
+
+    private void postorderRec(Nodo nodo) {
+        if (nodo != null) {
+            postorderRec(nodo.izquierda);
+            postorderRec(nodo.derecha);
+            System.out.print(nodo.valor + " ");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Arbol arbol = new ArbolBinario();
+
+        // Insertar elementos en el árbol
+        arbol.insertar(50);
+        arbol.insertar(30);
+        arbol.insertar(20);
+        arbol.insertar(40);
+        arbol.insertar(70);
+        arbol.insertar(60);
+        arbol.insertar(80);
+
+        // Realizar recorridos del árbol
+        System.out.println("Recorrido inorder:");
+        arbol.inorder();
+        System.out.println("\nRecorrido preorder:");
+        arbol.preorder();
+        System.out.println("\nRecorrido postorder:");
+        arbol.postorder();
+
+        // Buscar elementos en el árbol
+        System.out.println("\n¿El elemento 40 está en el árbol? " + arbol.buscar(40));
+        System.out.println("¿El elemento 90 está en el árbol? " + arbol.buscar(90));
+
+        // Eliminar un elemento del árbol
+        arbol.eliminar(20);
+        System.out.println("\nRecorrido inorder después de eliminar el elemento 20:");
+        arbol.inorder();
+    }
+}
+-------------------------------------------------------------------------------
+
+-------Salida en consola--------------
+Recorrido inorder:
+20 30 40 50 60 70 80 
+Recorrido preorder:
+50 30 20 40 70 60 80 
+Recorrido postorder:
+20 40 30 60 80 70 50 
+¿El elemento 40 está en el árbol? true
+¿El elemento 90 está en el árbol? false
+Recorrido inorder después de eliminar el elemento 20:
+30 40 50 60 70 80 
+---------------------------------------------------------
