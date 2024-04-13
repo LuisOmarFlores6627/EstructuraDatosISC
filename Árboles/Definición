@@ -1,1 +1,19 @@
+Árboles
+Los árboles pertenecen a las estructuras no lineales, sin embargo brindaran una homogeneidad en los datos que en ellos se almacenen, estas estructuras podrán tener
+más de un elemento posterior, sin embargo solo podrán tener un elemento que le anteceda.
+La estructura de un árbol implica una recursividad. Si un árbol no tiene nodos este se define como un árbol nulo que no posee raíz.
+A continuación se describen las partes que conforman un árbol:
+-Nodo hijo
+Este nodo siempre tendrá un nodo antecesor o superior, el cual tomará el nombre de padre
+-Nodo padre
+Será aquel nodo del cual se desprendan varios nodos llamados hijos, se debe considerar que los nodos padre pueden tener antecesores.
+-Nodo hermano
+Se dice que los nodos toman el nombre de hermano si se desprenden del mismo nodo padre.
+-Raíz
+Esta será el nodo principal de todo árbol, por ende no tendrá nodos que le antecedan.
+-Hoja o terminal
+Estos nodos son denominados así debido a que no se desprenderán de ellos ningún otro, también son considerados nodos hoja aquellos que se encuentran
+al finales del árbol.
+-Interior
+Toman este nombre aquellos nodos que no son raíz ni hoja.
 
