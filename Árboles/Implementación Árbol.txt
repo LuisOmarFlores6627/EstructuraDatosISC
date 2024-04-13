@@ -1,0 +1,122 @@
+------------------>Implementación de un Árbol en Java<---------------------  
+class Nodo {
+    int valor;
+    Nodo izquierda, derecha;
+
+    public Nodo(int item) {
+        valor = item;
+        izquierda = derecha = null;
+    }
+}
+
+public class ArbolBinario {
+    Nodo raiz;
+
+    public ArbolBinario() {
+        raiz = null;
+    }
+
+    // Insertar un nuevo nodo
+    public void insertar(int valor) {
+        raiz = insertarRec(raiz, valor);
+    }
+
+    // Función auxiliar para insertar un nuevo nodo
+    private Nodo insertarRec(Nodo nodo, int valor) {
+        if (nodo == null)
+            return new Nodo(valor);
+
+        if (valor < nodo.valor)
+            nodo.izquierda = insertarRec(nodo.izquierda, valor);
+        else if (valor > nodo.valor)
+            nodo.derecha = insertarRec(nodo.derecha, valor);
+
+        return nodo;
+    }
+
+    // Buscar un nodo
+    public Nodo buscar(Nodo nodo, int valor) {
+        if (nodo == null || nodo.valor == valor)
+            return nodo;
+
+        if (nodo.valor < valor)
+            return buscar(nodo.derecha, valor);
+
+        return buscar(nodo.izquierda, valor);
+    }
+
+    // Eliminar un nodo
+    public Nodo eliminarNodo(Nodo nodo, int valor) {
+        if (nodo == null)
+            return nodo;
+
+        if (valor < nodo.valor)
+            nodo.izquierda = eliminarNodo(nodo.izquierda, valor);
+        else if (valor > nodo.valor)
+            nodo.derecha = eliminarNodo(nodo.derecha, valor);
+        else {
+            if (nodo.izquierda == null)
+                return nodo.derecha;
+            else if (nodo.derecha == null)
+                return nodo.izquierda;
+
+            nodo.valor = valorMinimo(nodo.derecha);
+            nodo.derecha = eliminarNodo(nodo.derecha, nodo.valor);
+        }
+
+        return nodo;
+    }
+
+    // Encontrar el valor mínimo en un subárbol
+    int valorMinimo(Nodo nodo) {
+        int minv = nodo.valor;
+        while (nodo.izquierda != null) {
+            minv = nodo.izquierda.valor;
+            nodo = nodo.izquierda;
+        }
+        return minv;
+    }
+
+    // Recorrido inorden del árbol (izquierda, raíz, derecha)
+    public void recorridoInorden(Nodo nodo) {
+        if (nodo != null) {
+            recorridoInorden(nodo.izquierda);
+            System.out.print(nodo.valor + " ");
+            recorridoInorden(nodo.derecha);
+        }
+    }
+
+    public static void main(String[] args) {
+        ArbolBinario arbol = new ArbolBinario();
+
+        arbol.insertar(50);
+        arbol.insertar(30);
+        arbol.insertar(20);
+        arbol.insertar(40);
+        arbol.insertar(70);
+        arbol.insertar(60);
+        arbol.insertar(80);
+
+        System.out.println("Recorrido inorden del árbol:");
+        arbol.recorridoInorden(arbol.raiz);
+        System.out.println();
+
+        System.out.println("Eliminar 20:");
+        arbol.raiz = arbol.eliminarNodo(arbol.raiz, 20);
+        System.out.println("Recorrido inorden después de eliminar 20:");
+        arbol.recorridoInorden(arbol.raiz);
+    }
+}
+--------------------------------------
+-----------Salida de consola-----------
+20 30 40 50 60 70 80 
+Eliminar 20:
+Recorrido inorden después de eliminar 20:
+30 40 50 60 70 80 
+---------------------------------------
+
+
+
+
+
+
