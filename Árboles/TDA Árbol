@@ -1,7 +1,7 @@
 ------Algoritmo-----
 RecorridoArbolBinario:
   InOrder:
-    Descripción: |
+    Descripción: 
       1. Realizar un recorrido en orden en un árbol binario significa visitar
          primero el nodo izquierdo, luego el nodo actual y finalmente el nodo derecho.
     Algoritmo:
@@ -10,7 +10,7 @@ RecorridoArbolBinario:
         - Imprimir el valor del nodo actual
         - Recorrer el nodo derecho (InOrder)
   PreOrder:
-    Descripción: |
+    Descripción: 
       1. Realizar un recorrido en preorden en un árbol binario significa visitar
          primero el nodo actual, luego el nodo izquierdo y finalmente el nodo derecho.
     Algoritmo:
@@ -19,7 +19,7 @@ RecorridoArbolBinario:
         - Recorrer el nodo izquierdo (PreOrder)
         - Recorrer el nodo derecho (PreOrder)
   PostOrder:
-    Descripción: |
+    Descripción: 
       1. Realizar un recorrido en postorden en un árbol binario significa visitar
          primero el nodo izquierdo, luego el nodo derecho y finalmente el nodo actual.
     Algoritmo:
