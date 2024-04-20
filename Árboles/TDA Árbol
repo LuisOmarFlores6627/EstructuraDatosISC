@@ -1,3 +1,34 @@
+------Algoritmo-----
+RecorridoArbolBinario:
+  InOrder:
+    Descripción: |
+      1. Realizar un recorrido en orden en un árbol binario significa visitar
+         primero el nodo izquierdo, luego el nodo actual y finalmente el nodo derecho.
+    Algoritmo:
+      - Si el nodo no es nulo:
+        - Recorrer el nodo izquierdo (InOrder)
+        - Imprimir el valor del nodo actual
+        - Recorrer el nodo derecho (InOrder)
+  PreOrder:
+    Descripción: |
+      1. Realizar un recorrido en preorden en un árbol binario significa visitar
+         primero el nodo actual, luego el nodo izquierdo y finalmente el nodo derecho.
+    Algoritmo:
+      - Si el nodo no es nulo:
+        - Imprimir el valor del nodo actual
+        - Recorrer el nodo izquierdo (PreOrder)
+        - Recorrer el nodo derecho (PreOrder)
+  PostOrder:
+    Descripción: |
+      1. Realizar un recorrido en postorden en un árbol binario significa visitar
+         primero el nodo izquierdo, luego el nodo derecho y finalmente el nodo actual.
+    Algoritmo:
+      - Si el nodo no es nulo:
+        - Recorrer el nodo izquierdo (PostOrder)
+        - Recorrer el nodo derecho (PostOrder)
+        - Imprimir el valor del nodo actual
+
+
 ------->TDA<----------
 public class Arbol {
     // Atributos
