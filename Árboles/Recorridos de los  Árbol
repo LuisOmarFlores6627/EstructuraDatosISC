@@ -1,1 +1,136 @@
 ---------Recorridos de los  Árbol (PRE- IN-POST ORDEN)-------
+Hay tres tipos principales de recorridos: preorden, inorden y postorden. Estos recorridos se refieren al orden en el que se visitan los nodos del árbol.
+**Preorden (Preorder):
+En este recorrido, primero se visita el nodo raíz, luego se recorren recursivamente el subárbol izquierdo y el subárbol derecho. Por lo tanto, el orden de visita
+es: raíz, izquierda, derecha.
+**Inorden (Inorder):
+En este recorrido, primero se recorre recursivamente el subárbol izquierdo, luego se visita el nodo raíz y finalmente se recorre recursivamente el subárbol derecho. 
+Por lo tanto, el orden de visita es: izquierda, raíz, derecha.
+**Postorden (Postorder):
+En este recorrido, primero se recorren recursivamente el subárbol izquierdo y el subárbol derecho, y luego se visita el nodo raíz. Por lo tanto, el orden de visita es: 
+izquierda, derecha, raíz.
+Estos recorridos son utilizados en algoritmos de árboles binarios para realizar diversas operaciones, como búsqueda, inserción, eliminación o simplemente para imprimir los 
+nodos en un orden específico.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------->Implementacion de los recorridos en cada orden<--------------
+-----Recorrido Preorden:-----
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+public class PreOrderTraversal {
+    public static void preOrder(TreeNode root) {
+        if (root == null) return;
+        System.out.print(root.val + " "); // Visitar el nodo raíz
+        preOrder(root.left); // Recorrer subárbol izquierdo
+        preOrder(root.right); // Recorrer subárbol derecho
+    }
+
+    public static void main(String[] args) {
+        // Crear un árbol de ejemplo
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        // Ejecutar el recorrido preorden
+        System.out.println("Recorrido preorden:");
+        preOrder(root);
+        System.out.println();
+    }
+}
+----------------------------------------------------------------------------------------
+-------->Salida en pantalla<-------
+Recorrido preorden:
+1 2 4 5 3 
+----------------------------------
+
+-----Recorrido Inorden:-----
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+public class InOrderTraversal {
+    public static void inOrder(TreeNode root) {
+        if (root == null) return;
+        inOrder(root.left); // Recorrer subárbol izquierdo
+        System.out.print(root.val + " "); // Visitar el nodo raíz
+        inOrder(root.right); // Recorrer subárbol derecho
+    }
+
+    public static void main(String[] args) {
+        // Crear un árbol de ejemplo
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        // Ejecutar el recorrido inorden
+        System.out.println("Recorrido inorden:");
+        inOrder(root);
+        System.out.println();
+    }
+}
+------------------------------------------------------------------------------
+-------->Salida en pantalla<-------
+Recorrido inorden:
+4 2 5 1 3 
+----------------------------------
+
+-----Recorrido Postorden:-----
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+public class PostOrderTraversal {
+    public static void postOrder(TreeNode root) {
+        if (root == null) return;
+        postOrder(root.left); // Recorrer subárbol izquierdo
+        postOrder(root.right); // Recorrer subárbol derecho
+        System.out.print(root.val + " "); // Visitar el nodo raíz
+    }
+
+    public static void main(String[] args) {
+        // Crear un árbol de ejemplo
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        // Ejecutar el recorrido postorden
+        System.out.println("Recorrido postorden:");
+        postOrder(root);
+        System.out.println();
+    }
+}
+-------------------------------------------------------------------------------
+-------->Salida en pantalla<-------
+Recorrido postorden:
+4 5 2 3 1
+----------------------------------
+
+
+
+
