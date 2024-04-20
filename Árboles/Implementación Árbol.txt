@@ -16,80 +16,52 @@ class Nodo {
     }
 }
 
-public class ArbolBinario {
+class ArbolBinario {
     Nodo raiz;
 
-    public ArbolBinario() {
+    ArbolBinario() {
         raiz = null;
     }
 
-    // Insertar un nuevo nodo
-    public void insertar(int valor) {
-        raiz = insertarRec(raiz, valor);
+    void insertar(int valor) {
+        raiz = insertarNodo(raiz, valor);
     }
 
-    // Función auxiliar para insertar un nuevo nodo
-    private Nodo insertarRec(Nodo nodo, int valor) {
-        if (nodo == null)
-            return new Nodo(valor);
+    Nodo insertarNodo(Nodo nodo, int valor) {
+        if (nodo == null) {
+            nodo = new Nodo(valor);
+            return nodo;
+        }
 
         if (valor < nodo.valor)
-            nodo.izquierda = insertarRec(nodo.izquierda, valor);
+            nodo.izquierda = insertarNodo(nodo.izquierda, valor);
         else if (valor > nodo.valor)
-            nodo.derecha = insertarRec(nodo.derecha, valor);
+            nodo.derecha = insertarNodo(nodo.derecha, valor);
 
         return nodo;
     }
 
-    // Buscar un nodo
-    public Nodo buscar(Nodo nodo, int valor) {
-        if (nodo == null || nodo.valor == valor)
-            return nodo;
-
-        if (nodo.valor < valor)
-            return buscar(nodo.derecha, valor);
-
-        return buscar(nodo.izquierda, valor);
-    }
-
-    // Eliminar un nodo
-    public Nodo eliminarNodo(Nodo nodo, int valor) {
-        if (nodo == null)
-            return nodo;
-
-        if (valor < nodo.valor)
-            nodo.izquierda = eliminarNodo(nodo.izquierda, valor);
-        else if (valor > nodo.valor)
-            nodo.derecha = eliminarNodo(nodo.derecha, valor);
-        else {
-            if (nodo.izquierda == null)
-                return nodo.derecha;
-            else if (nodo.derecha == null)
-                return nodo.izquierda;
-
-            nodo.valor = valorMinimo(nodo.derecha);
-            nodo.derecha = eliminarNodo(nodo.derecha, nodo.valor);
-        }
-
-        return nodo;
-    }
-
-    // Encontrar el valor mínimo en un subárbol
-    int valorMinimo(Nodo nodo) {
-        int minv = nodo.valor;
-        while (nodo.izquierda != null) {
-            minv = nodo.izquierda.valor;
-            nodo = nodo.izquierda;
-        }
-        return minv;
-    }
-
-    // Recorrido inorden del árbol (izquierda, raíz, derecha)
-    public void recorridoInorden(Nodo nodo) {
+    void imprimirInOrden(Nodo nodo) {
         if (nodo != null) {
-            recorridoInorden(nodo.izquierda);
+            imprimirInOrden(nodo.izquierda);
             System.out.print(nodo.valor + " ");
-            recorridoInorden(nodo.derecha);
+            imprimirInOrden(nodo.derecha);
+        }
+    }
+
+    void imprimirPreOrden(Nodo nodo) {
+        if (nodo != null) {
+            System.out.print(nodo.valor + " ");
+            imprimirPreOrden(nodo.izquierda);
+            imprimirPreOrden(nodo.derecha);
+        }
+    }
+
+    void imprimirPostOrden(Nodo nodo) {
+        if (nodo != null) {
+            imprimirPostOrden(nodo.izquierda);
+            imprimirPostOrden(nodo.derecha);
+            System.out.print(nodo.valor + " ");
         }
     }
 
@@ -104,22 +76,24 @@ public class ArbolBinario {
         arbol.insertar(60);
         arbol.insertar(80);
 
-        System.out.println("Recorrido inorden del árbol:");
-        arbol.recorridoInorden(arbol.raiz);
-        System.out.println();
+        System.out.println("Recorrido Inorden del árbol:");
+        arbol.imprimirInOrden(arbol.raiz);
 
-        System.out.println("Eliminar 20:");
-        arbol.raiz = arbol.eliminarNodo(arbol.raiz, 20);
-        System.out.println("Recorrido inorden después de eliminar 20:");
-        arbol.recorridoInorden(arbol.raiz);
+        System.out.println("\nRecorrido Preorden del árbol:");
+        arbol.imprimirPreOrden(arbol.raiz);
+
+        System.out.println("\nRecorrido Postorden del árbol:");
+        arbol.imprimirPostOrden(arbol.raiz);
     }
 }
 --------------------------------------
 -----------Salida de consola-----------
+Recorrido Inorden del árbol:
 20 30 40 50 60 70 80 
-Eliminar 20:
-Recorrido inorden después de eliminar 20:
-30 40 50 60 70 80 
+Recorrido Preorden del árbol:
+50 30 20 40 70 60 80 
+Recorrido Postorden del árbol:
+20 40 30 60 80 70 50 
 ---------------------------------------
 
 
