@@ -1,31 +1,31 @@
 ------Algoritmo-----
 RecorridoArbolBinario:
-  InOrder:
+  InOrden:
     Descripción: 
       1. Realizar un recorrido en orden en un árbol binario significa visitar
          primero el nodo izquierdo, luego el nodo actual y finalmente el nodo derecho.
     Algoritmo:
       - Si el nodo no es nulo:
-        - Recorrer el nodo izquierdo (InOrder)
+        - Recorrer el nodo izquierdo (InOrden)
         - Imprimir el valor del nodo actual
-        - Recorrer el nodo derecho (InOrder)
-  PreOrder:
+        - Recorrer el nodo derecho (InOrden)
+  PreOrden:
     Descripción: 
       1. Realizar un recorrido en preorden en un árbol binario significa visitar
          primero el nodo actual, luego el nodo izquierdo y finalmente el nodo derecho.
     Algoritmo:
       - Si el nodo no es nulo:
         - Imprimir el valor del nodo actual
-        - Recorrer el nodo izquierdo (PreOrder)
-        - Recorrer el nodo derecho (PreOrder)
-  PostOrder:
+        - Recorrer el nodo izquierdo (PreOrden)
+        - Recorrer el nodo derecho (PreOrden)
+  PostOrden: 
     Descripción: 
       1. Realizar un recorrido en postorden en un árbol binario significa visitar
          primero el nodo izquierdo, luego el nodo derecho y finalmente el nodo actual.
     Algoritmo:
       - Si el nodo no es nulo:
-        - Recorrer el nodo izquierdo (PostOrder)
-        - Recorrer el nodo derecho (PostOrder)
+        - Recorrer el nodo izquierdo (PostOrden)
+        - Recorrer el nodo derecho (PostOrden)
         - Imprimir el valor del nodo actual
 
 
@@ -59,41 +59,41 @@ public class Arbol {
         return nodo;
     }
 
-    // Recorrido en orden (inorder)
-    public void inorder() {
-        inorderRecursivo(this.raiz);
+    // Recorrido en orden (inorden)
+    public void inorden() {
+        inordenRecursivo(this.raiz);
     }
 
-    private void inorderRecursivo(Nodo nodo) {
+    private void inordenRecursivo(Nodo nodo) {
         if (nodo != null) {
-            inorderRecursivo(nodo.izquierdo);
+            inordenRecursivo(nodo.izquierdo);
             System.out.print(nodo.valor + " ");
-            inorderRecursivo(nodo.derecho);
+            inordenRecursivo(nodo.derecho);
         }
     }
 
-    // Recorrido en preorden (preorder)
-    public void preorder() {
-        preorderRecursivo(this.raiz);
+    // Recorrido en preorden (preorden)
+    public void preorden() {
+        preordenRecursivo(this.raiz);
     }
 
-    private void preorderRecursivo(Nodo nodo) {
+    private void preordenRecursivo(Nodo nodo) {
         if (nodo != null) {
             System.out.print(nodo.valor + " ");
-            preorderRecursivo(nodo.izquierdo);
-            preorderRecursivo(nodo.derecho);
+            preordenRecursivo(nodo.izquierdo);
+            preordenRecursivo(nodo.derecho);
         }
     }
 
-    // Recorrido en postorden (postorder)
-    public void postorder() {
-        postorderRecursivo(this.raiz);
+    // Recorrido en postorden (postorden)
+    public void postorden() {
+        postordenRecursivo(this.raiz);
     }
 
-    private void postorderRecursivo(Nodo nodo) {
+    private void postordenRecursivo(Nodo nodo) {
         if (nodo != null) {
-            postorderRecursivo(nodo.izquierdo);
-            postorderRecursivo(nodo.derecho);
+            postordenRecursivo(nodo.izquierdo);
+            postordenRecursivo(nodo.derecho);
             System.out.print(nodo.valor + " ");
         }
     }
@@ -112,11 +112,11 @@ public class Arbol {
         arbol.insertar(17);
 
         // Mostrar el árbol en diferentes órdenes
-        System.out.println("Inorder:");
+        System.out.println("Inorden:");
         arbol.inorder();
-        System.out.println("\nPreorder:");
+        System.out.println("\nPreorden:"); 
         arbol.preorder();
-        System.out.println("\nPostorder:");
+        System.out.println("\nPostorden:");
         arbol.postorder();
     }
 }
