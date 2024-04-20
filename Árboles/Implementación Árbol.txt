@@ -5,6 +5,7 @@ La estructura básica de un nodo en un árbol binario generalmente contiene tres
 -Referencia al hijo izquierdo: Es una referencia al nodo hijo que está a la izquierda del nodo actual. Este hijo debe tener un valor menor que el valor del nodo actual en un árbol de búsqueda binaria.
 -Referencia al hijo derecho: Es una referencia al nodo hijo que está a la derecha del nodo actual. Este hijo debe tener un valor mayor que el valor del nodo actual en un árbol de búsqueda binaria.
 Los árboles binarios se utilizan en una variedad de aplicaciones, como la implementación de estructuras de datos como árboles de búsqueda binaria, árboles AVL para mantener el equilibrio, expresiones aritméticas, estructuras de datos de archivos, entre otros.
+
 ------------------>Implementación de un Árbol en Java<---------------------  
 class Nodo {
     int valor;
