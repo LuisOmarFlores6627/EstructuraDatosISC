@@ -17,5 +17,5 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
 1. [Árboles](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/%C3%81rboles/Definici%C3%B3n)
    - [Implementación de un árbol](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/%C3%81rboles/Implementaci%C3%B3n%20%C3%81rbol.txt) 
    - [TDA de Árbol](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/%C3%81rboles/TDA%20%C3%81rbol) 
-
+   - [Recorridos de los  Árbol](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/%C3%81rboles/Recorridos%20de%20los%20%20%C3%81rbol) 
 
