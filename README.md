@@ -21,4 +21,5 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
    - [Transformación de expresión de infija a postfija](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/%C3%81rboles/Transformaci%C3%B3n%20de%20la%20expresi%C3%B3n%20de%20infija%20a%20postfija) 
 2. [Grafos](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/grafos.txt) 
    - [Implementación de un grafo](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/Implementaci%C3%B3n%20de%20un%20grafo) 
+   - [TDA de un  Grafo](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/TDA%20de%20un%20%20Grafo) 
 
