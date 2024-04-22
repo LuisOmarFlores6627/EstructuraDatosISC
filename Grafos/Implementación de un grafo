@@ -1,1 +1,115 @@
+ Implementación de un Grafo (dirigido Y No dirigido )   
+Un grafo dirigido, también conocido como digrafo, es aquel en el que las aristas tienen una dirección específica, es decir, indican una relación de "de" y "hacia". 
+Por ejemplo, podrías pensar en un grafo dirigido para modelar las conexiones entre ciudades con direcciones de una carretera de una ciudad a otra.
+Un grafo no dirigido, por otro lado, es aquel en el que las aristas no tienen una dirección asociada. Las conexiones entre los nodos se interpretan como bidireccionales. 
+Por ejemplo, si estás modelando una red social, podrías usar un grafo no dirigido para representar las amistades entre personas, ya que la amistad generalmente es recíproca.
 
+-------------------------Implementación en java ---------------------------
+import java.util.*;
+
+// Clase para representar un grafo no dirigido
+class GrafoNoDirigido {
+    private Map<Integer, List<Integer>> vertices;
+
+    // Constructor de la clase GrafoNoDirigido
+    public GrafoNoDirigido() {
+        this.vertices = new HashMap<>();
+    }
+
+    // Método para agregar un vértice al grafo
+    public void agregarVertice(int vertice) {
+        vertices.put(vertice, new ArrayList<>());
+    }
+
+    // Método para agregar una arista entre dos vértices del grafo
+    public void agregarArista(int vertice1, int vertice2) {
+        vertices.get(vertice1).add(vertice2);  // Conexión de vertice1 a vertice2
+        vertices.get(vertice2).add(vertice1);  // Conexión de vertice2 a vertice1 (en un grafo no dirigido)
+    }
+
+    // Método toString() para representar el grafo como una cadena de caracteres
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Integer, List<Integer>> entry : vertices.entrySet()) {
+            sb.append(entry.getKey()).append(" -> ");
+            for (int vecino : entry.getValue()) {
+                sb.append(vecino).append(" ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+}
+
+// Clase para representar un grafo dirigido
+class GrafoDirigido {
+    private Map<Integer, List<Integer>> vertices;
+
+    // Constructor de la clase GrafoDirigido
+    public GrafoDirigido() {
+        this.vertices = new HashMap<>();
+    }
+
+    // Método para agregar un vértice al grafo
+    public void agregarVertice(int vertice) {
+        vertices.put(vertice, new ArrayList<>());
+    }
+
+    // Método para agregar una arista dirigida desde un vértice origen hacia un vértice destino
+    public void agregarArista(int origen, int destino) {
+        vertices.get(origen).add(destino);  // Conexión desde el vértice origen hacia el vértice destino
+    }
+
+    // Método toString() para representar el grafo como una cadena de caracteres
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Integer, List<Integer>> entry : vertices.entrySet()) {
+            sb.append(entry.getKey()).append(" -> ");
+            for (int vecino : entry.getValue()) {
+                sb.append(vecino).append(" ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+}
+
+// Clase principal que contiene el método main para probar los grafos
+public class Main {
+    public static void main(String[] args) {
+        // Ejemplo de uso del grafo no dirigido
+        GrafoNoDirigido grafoNoDirigido = new GrafoNoDirigido();
+        grafoNoDirigido.agregarVertice(1);
+        grafoNoDirigido.agregarVertice(2);
+        grafoNoDirigido.agregarVertice(3);
+        grafoNoDirigido.agregarArista(1, 2);
+        grafoNoDirigido.agregarArista(2, 3);
+        System.out.println("Grafo No Dirigido:");
+        System.out.println(grafoNoDirigido);
+
+        // Ejemplo de uso del grafo dirigido
+        GrafoDirigido grafoDirigido = new GrafoDirigido();
+        grafoDirigido.agregarVertice(1);
+        grafoDirigido.agregarVertice(2);
+        grafoDirigido.agregarVertice(3);
+        grafoDirigido.agregarArista(1, 2);
+        grafoDirigido.agregarArista(2, 3);
+        System.out.println("Grafo Dirigido:");
+        System.out.println(grafoDirigido);
+    }
+}
+-------------------------------------------------------------------------------------
+
+--------------Salida en pantalla---------------------
+Grafo No Dirigido:
+1 -> 2 
+2 -> 1 3 
+3 -> 2 
+
+Grafo Dirigido:
+1 -> 2 
+2 -> 3 
+3 -> 
+---------------------------------------------------
