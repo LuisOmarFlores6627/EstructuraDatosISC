@@ -1,1 +1,69 @@
+----------Implementación mediante matrices de adyacencia---------
+public class GrafoMatrizAdyacencia {
+    private int[][] matrizAdyacencia; // Matriz de adyacencia para representar el grafo
+    private int numVertices; // Número de vértices en el grafo
+
+    // Constructor para inicializar la matriz de adyacencia y el número de vértices
+    public GrafoMatrizAdyacencia(int numVertices) {
+        this.numVertices = numVertices;
+        matrizAdyacencia = new int[numVertices][numVertices];
+        // Inicializar la matriz de adyacencia con 0 (sin conexiones) para cada par de vértices
+        for (int i = 0; i < numVertices; i++) {
+            for (int j = 0; j < numVertices; j++) {
+                matrizAdyacencia[i][j] = 0; // Inicialmente no hay conexiones
+            }
+        }
+    }
+
+    // Método para agregar una arista entre dos vértices con un peso dado
+    public void agregarArista(int origen, int destino, int peso) {
+        matrizAdyacencia[origen][destino] = peso;
+        matrizAdyacencia[destino][origen] = peso; // Si el grafo es no dirigido
+    }
+
+    // Método para eliminar una arista entre dos vértices
+    public void eliminarArista(int origen, int destino) {
+        matrizAdyacencia[origen][destino] = 0;
+        matrizAdyacencia[destino][origen] = 0; // Si el grafo es no dirigido
+    }
+
+    // Método para verificar si hay una arista entre dos vértices
+    public boolean hayArista(int origen, int destino) {
+        return matrizAdyacencia[origen][destino] != 0;
+    }
+
+    // Método para obtener el peso de una arista entre dos vértices
+    public int getPesoArista(int origen, int destino) {
+        return matrizAdyacencia[origen][destino];
+    }
+
+    // Método para obtener el número de vértices en el grafo
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    // Método para imprimir la matriz de adyacencia (para fines de depuración)
+    public void imprimirMatrizAdyacencia() {
+        for (int i = 0; i < numVertices; i++) {
+            for (int j = 0; j < numVertices; j++) {
+                System.out.print(matrizAdyacencia[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Método principal para probar la clase
+    public static void main(String[] args) {
+        GrafoMatrizAdyacencia grafo = new GrafoMatrizAdyacencia(5);
+        grafo.agregarArista(0, 1, 1);
+        grafo.agregarArista(0, 2, 1);
+        grafo.agregarArista(1, 2, 1);
+        grafo.agregarArista(2, 3, 1);
+        grafo.agregarArista(3, 4, 1);
+
+        grafo.imprimirMatrizAdyacencia();
+    }
+}
+------------------------------------------------------------------------------------------
+
 
