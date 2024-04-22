@@ -22,4 +22,5 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
 2. [Grafos](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/grafos.txt) 
    - [Implementación de un grafo](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/Implementaci%C3%B3n%20de%20un%20grafo) 
    - [TDA de un  Grafo](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/TDA%20de%20un%20%20Grafo) 
+   - [Implementación mediante matrices de adyacencia](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/Implementaci%C3%B3n%20mediante%20matrices%20de%20adyacencia) 
 
