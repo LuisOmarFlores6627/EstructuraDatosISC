@@ -1,0 +1,5 @@
+Un grafo es un conjunto no vacıo de objetos o entes fısicos que tienen relacion entre ellos. Un grafo esta formado por vertices, muchas veces tambien 
+llamados nodos (siendo estos los que representan a los objetos), y un conjunto de arcos que representan las relaciones entre los vertices, tambien llamadas aristas
+Los grafos son estructuras matemáticas utilizadas para modelar relaciones entre objetos. Consisten en un conjunto de nodos (también llamados vértices) y un conjunto de 
+aristas (también llamadas bordes) que conectan estos nodos. Los grafos se utilizan en una amplia variedad de campos, como la informática, la teoría de redes, la logística, 
+la biología y más, para representar relaciones entre entidades.
