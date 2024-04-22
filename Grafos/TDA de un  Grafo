@@ -1,1 +1,79 @@
+-----------TDA GRAFO--------------
+import java.util.*;
+
+public class Grafo {
+    // Atributos
+    private int numVertices;                // Número de vértices en el grafo
+    private LinkedList<Integer> adj[];     // Matriz de listas enlazadas para representar las aristas del grafo
+
+    // Constructor para inicializar el grafo con un número dado de vértices
+    public Grafo(int numVertices) {
+        this.numVertices = numVertices;
+        // Inicialización de la matriz de listas enlazadas para las listas de adyacencia de cada vértice
+        adj = new LinkedList[numVertices];
+        for (int i = 0; i < numVertices; ++i)
+            adj[i] = new LinkedList();
+    }
+
+    // Método para agregar una arista entre dos vértices dados
+    public void agregarArista(int origen, int destino) {
+        adj[origen].add(destino);
+    }
+
+    // Método para imprimir la representación del grafo como listas de adyacencia
+    public void imprimirGrafo() {
+        for (int i = 0; i < numVertices; ++i) {
+            System.out.println("Lista de adyacencia del vértice " + i);
+            System.out.print("head");
+            for (Integer nodo : adj[i]) {
+                System.out.print(" -> " + nodo);
+            }
+            System.out.println("\n");
+        }
+    }
+
+    // Método main para probar la implementación
+    public static void main(String args[]) {
+        // Creación de un objeto Grafo con 4 vértices
+        Grafo grafo = new Grafo(4);
+        // Agregamos algunas aristas al grafo
+        grafo.agregarArista(0, 1);
+        grafo.agregarArista(0, 2);
+        grafo.agregarArista(1, 2);
+        grafo.agregarArista(2, 0);
+        grafo.agregarArista(2, 3);
+        grafo.agregarArista(3, 3);
+
+        // Imprimimos la representación del grafo
+        grafo.imprimirGrafo();
+    }
+}
+-------------------------------------------------------------------------
+
+--------------------ALGORITMO------------------------
+Grafo:
+  Atributos:
+    - numVertices: Número de vértices en el grafo.
+    - adj: Matriz de listas enlazadas para representar las aristas del grafo.
+  Métodos:
+    - constructor(numVertices): 
+        Descripción: Inicializa el grafo con un número dado de vértices.
+    - agregarArista(origen, destino): 
+        Descripción: Agrega una arista entre dos vértices dados.
+    - imprimirGrafo(): 
+        Descripción: Imprime la representación del grafo como listas de adyacencia.
+  Ejemplo:
+    - Creación del grafo con 4 vértices:
+        - Método: constructor(4)
+    - Agregar aristas:
+        - Método: agregarArista(0, 1)
+        - Método: agregarArista(0, 2)
+        - Método: agregarArista(1, 2)
+        - Método: agregarArista(2, 0)
+        - Método: agregarArista(2, 3)
+        - Método: agregarArista(3, 3)
+    - Imprimir el grafo:
+        - Método: imprimirGrafo()
+---------------------------------------------------------------------------------
+
 
