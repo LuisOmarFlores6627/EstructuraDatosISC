@@ -1,1 +1,22 @@
+----------Búsquedas de caminos-----------
+Las búsquedas de caminos en grafos son algoritmos utilizados para encontrar rutas entre nodos en un grafo. Un grafo es simplemente un conjunto 
+de nodos (también llamados vértices) conectados por aristas (también llamadas bordes). Estas búsquedas son fundamentales en muchos campos, 
+incluyendo la informática, la logística, la planificación de rutas y más.
+Hay varios algoritmos diferentes para buscar caminos en un grafo, cada uno con sus propias ventajas y desventajas dependiendo del tipo de grafo 
+y el problema específico que se esté tratando. Algunos de los algoritmos más comunes incluyen:
+1. Búsqueda en profundidad (DFS, por sus siglas en inglés): Este algoritmo comienza en un nodo inicial y sigue un camino hasta que no hay más 
+nodos que visitar. Luego retrocede hasta encontrar un nodo con caminos no explorados. Es una búsqueda más profunda antes de retroceder.
+2.Búsqueda en amplitud (BFS, por sus siglas en inglés): En contraste con DFS, BFS comienza en un nodo inicial y explora todos los nodos vecinos
+antes de avanzar a los siguientes nodos vecinos. Es decir, explora primero todos los vecinos directos antes de pasar a los vecinos de segundo orden.
+3.Algoritmo de Dijkstra: Este algoritmo encuentra el camino más corto desde un nodo de inicio a todos los demás nodos en un grafo con pesos no negativos
+en las aristas. Utiliza una técnica conocida como "exploración por vecinos más cercanos primero".
+4.Algoritmo de Bellman-Ford: Similar al algoritmo de Dijkstra, pero es más general y puede manejar grafos con aristas con pesos negativos, aunque no 
+puede manejar ciclos de pesos negativos.
+5.Algoritmo A*: Es una combinación de la búsqueda en amplitud y una estimación heurística de la distancia al nodo objetivo. Es eficiente y se utiliza
+comúnmente en problemas de búsqueda de rutas en inteligencia artificial y robótica.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
