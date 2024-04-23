@@ -26,4 +26,5 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
    - [Implementación mediante listas de adyacencias](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/Implementaci%C3%B3n%20mediante%20listas%20de%20adyacencias.) 
    - [Recorridos sobre grafos](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/Recorridos%20sobre%20grafos) 
    - [El algoritmo de Kruskal](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/El%20algoritmo%20de%20Kruskal) 
+   - [Búsquedas de caminos](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Grafos/B%C3%BAsquedas%20de%20caminos) 
 
