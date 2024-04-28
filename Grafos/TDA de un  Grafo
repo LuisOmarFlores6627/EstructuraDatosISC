@@ -50,6 +50,20 @@ public class Grafo {
 }
 -------------------------------------------------------------------------
 
+--------------Salida de codigo----------------
+Lista de adyacencia del vértice 0
+head -> 1 -> 2
+
+Lista de adyacencia del vértice 1
+head -> 2
+
+Lista de adyacencia del vértice 2
+head -> 0 -> 3
+
+Lista de adyacencia del vértice 3
+head -> 3
+---------------------------------------------------
+
 --------------------ALGORITMO------------------------
 Grafo:
   Atributos:
