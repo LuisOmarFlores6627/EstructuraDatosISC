@@ -1,1 +1,19 @@
+-------------------------Métodos de ordenamiento------------------------------
+Los algoritmos de ordenación son un conjunto de instrucciones que toman un arreglo o lista como entrada y organizan
+los elementos en un orden particular.Las ordenaciones suelen ser numéricas o una forma de orden alfabético (o lexicográfico),
+y pueden ser en orden ascendente (AZ, 0-9) o descendente (ZA, 9-0).
+Algunos de los algoritmos de ordenación más comunes son:
+Selection sort (selección)
+Bubble sort (burbuja)
+Insertion sort (inserción)
+Merge sort (combinación)
+Quick sort (rápida)
+Heap sort (montón)
+Counting sort (conteo)
+Radix sort (raíz)
+Bucket sort (cubo)
+-----------------------------------------------------------------------------------
+
+
+
 
