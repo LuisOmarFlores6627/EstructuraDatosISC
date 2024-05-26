@@ -32,5 +32,6 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
 - [Métodos de ordenamiento](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/M%C3%A9todos%20de%20ordenamiento) 
 1. [Bubblesort](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Bubblesort)
    - [Ejemplos Bubblesort](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/bubble) 
+2. [Cocktailsort](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Ordenamiento%20de%20burbuja%20bidireccional)
 
 
