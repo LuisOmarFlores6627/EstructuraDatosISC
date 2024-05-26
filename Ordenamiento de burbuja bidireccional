@@ -1,1 +1,119 @@
+------------------Cocktail sort--------------------------
+El ordenamiento de burbuja bidireccional, también conocido como ordenamiento de sacudida o "cocktail shaker sort", es 
+una variación del ordenamiento de burbuja estándar. Esta técnica mejora el rendimiento del algoritmo básico al recorrer 
+la lista en ambas direcciones alternativamente, en lugar de hacerlo únicamente en una dirección.
+-----------------------------------------------------------
+
+---------------Algoritmo-------------------
+Ordenamiento_Burbuja_Bidireccional:
+  Descripción: >
+    El ordenamiento de burbuja bidireccional, también conocido como
+    ordenamiento de sacudida, es una variación del ordenamiento de burbuja que
+    recorre la lista en ambas direcciones alternativamente, mejorando el
+    rendimiento del algoritmo básico.
+  Pasos:
+    - Inicializar la variable swapped como True.
+    - Inicializar las variables start y end al principio y al final de la lista, respectivamente.
+    - Mientras swapped sea True:
+      - Establecer swapped en False.
+      - Recorrer la lista hacia adelante desde start hasta end - 1:
+        - Si el elemento actual es mayor que el siguiente, intercambiarlos y establecer swapped en True.
+      - Si no se realizó ningún intercambio, salir del bucle.
+      - Disminuir end en 1.
+      - Recorrer la lista hacia atrás desde end - 1 hasta start + 1:
+        - Si el elemento actual es mayor que el siguiente, intercambiarlos y establecer swapped en True.
+      - Aumentar start en 1.
+    - La lista está ordenada cuando no se realiza ningún intercambio en una pasada completa.
+------------------------------------------------------------------------------------------------------------
+
+-----------------------IMPLEMENTACIÓN EN JAVA-------------------------------
+import java.util.Scanner;
+
+public class BubbleSortBidirectional {
+    public static void cocktailShakerSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped = true;
+        int start = 0;
+        int end = n - 1;
+
+        while (swapped) {
+            swapped = false;
+
+            // Recorrido hacia adelante
+            for (int i = start; i < end; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    // Intercambio de elementos
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // Si no se realizó ningún intercambio, la lista está ordenada
+            if (!swapped) {
+                break;
+            }
+
+            // Recorrido hacia atrás
+            swapped = false;
+            end--;
+
+            for (int i = end - 1; i >= start; i--) {
+                if (arr[i] > arr[i + 1]) {
+                    // Intercambio de elementos
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // Aumentar el inicio del recorrido
+            start++;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario el tamaño del array
+        System.out.print("Ingrese la cantidad de elementos: ");
+        int size = scanner.nextInt();
+
+        // Crear el array con el tamaño especificado
+        int[] arr = new int[size];
+
+        // Solicitar al usuario los elementos del array
+        System.out.println("Ingrese los elementos del array:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Llamar al método de ordenamiento
+        cocktailShakerSort(arr);
+
+        // Imprimir el array ordenado
+        System.out.println("Array ordenado:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+        scanner.close();
+    }
+}
+------------------------------------------------------------------------------------
+
+----------------------Salida en pantalla------------------------------
+Ingrese la cantidad de elementos: 5
+Ingrese los elementos del array:
+90
+14
+101
+1
+56
+Array ordenado:
+1 14 56 90 101
+-----------------------------------------------------------------------
+
 
