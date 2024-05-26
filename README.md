@@ -36,5 +36,6 @@ Definiciones y ejercicios de la asignatura de Estructura de Datos
    - [Ejemplos Cocktailsort](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/Cocktail) 
 3. [Insertionsort](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Insertion%20sort)
    - [Ejemplos Insertionsort](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/Insertion) 
+4. [Mergesort](https://github.com/LuisOmarFlores6627/EstructuraDatosISC/blob/main/Ordenamiento%20por%20mezcla)
 
 
