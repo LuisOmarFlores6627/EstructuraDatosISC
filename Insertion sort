@@ -1,1 +1,118 @@
+------------------Insertion sort------------------------
+La ordenación por inserción (insertion sort) es un algoritmo de ordenación simple e intuitivo basado en comparaciones.
+Construye la lista ordenada final un elemento a la vez. Es mucho menos eficiente en listas grandes en comparación con algoritmos 
+más avanzados como quicksort, heapsort o mergesort. 
+--------------------------------------------------------
+
+--------------------Algoritmo---------------------------
+ordenacion_por_insercion:
+  descripcion: >
+    La ordenación por inserción recorre una lista y, para cada elemento,
+    lo inserta en la posición correcta dentro de la parte ordenada de la lista.
+  parametros:
+    arr:
+      tipo: lista
+      descripcion: La lista de elementos a ordenar.
+  pasos:
+    - inicializar: 
+        descripcion: Inicializar el índice i en 1 (el segundo elemento)
+        i: 1
+    - bucle:
+        descripcion: Mientras i sea menor que la longitud de la lista
+        condicion: i < longitud(arr)
+        pasos:
+          - establecer_clave:
+              descripcion: Establecer la clave (key) como el elemento en la posición i
+              clave: arr[i]
+          - inicializar_j:
+              descripcion: Inicializar j como i - 1
+              j: i - 1
+          - bucle_interno:
+              descripcion: Mientras j sea mayor o igual a 0 y arr[j] sea mayor que la clave
+              condicion: j >= 0 y arr[j] > clave
+              pasos:
+                - desplazar_elemento:
+                    descripcion: Desplazar arr[j] a la derecha
+                    arr[j + 1]: arr[j]
+                - decrementar_j:
+                    descripcion: Decrementar j
+                    j: j - 1
+          - insertar_clave:
+              descripcion: Insertar la clave en su posición correcta
+              arr[j + 1]: clave
+          - incrementar_i:
+              descripcion: Incrementar i
+              i: i + 1
+  retorno:
+    descripcion: Retornar la lista ordenada
+    arr: arr
+-------------------------------------------------------------------------------------------
+
+-------------------IMPLEMENTACIÓN EN JAVA------------------------------
+import java.util.Scanner;
+
+public class InsertionSort {
+
+    // Método para realizar la ordenación por inserción
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            // Desplazar los elementos de arr[0..i-1], que son mayores que la clave, a una posición adelante
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+    // Método para imprimir la lista
+    public static void printArray(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar el tamaño de la lista
+        System.out.print("Ingrese el tamaño de la lista: ");
+        int n = scanner.nextInt();
+
+        // Crear la lista de tamaño n
+        int[] arr = new int[n];
+
+        // Solicitar los elementos de la lista
+        System.out.println("Ingrese los elementos de la lista:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Ordenar la lista usando el método de ordenación por inserción
+        insertionSort(arr);
+
+        // Imprimir la lista ordenada
+        System.out.println("Lista ordenada:");
+        printArray(arr);
+
+        scanner.close();
+    }
+}
+--------------------------------------------------------------------------------------
+
+-----------------Salida de pantalla-----------------------
+Ingrese el tamaño de la lista: 4
+Ingrese los elementos de la lista:
+12
+98
+56
+32
+Lista ordenada:
+12 32 56 98 
+--------------------------------------------------------------
 
