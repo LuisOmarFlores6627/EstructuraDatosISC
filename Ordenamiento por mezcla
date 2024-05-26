@@ -1,1 +1,120 @@
+--------------------Merge sort ------------------------
+El ordenamiento por mezcla, también conocido como mergesort en inglés, es un algoritmo eficiente de ordenamiento que sigue el 
+paradigma de "divide y conquista". El proceso se puede resumir en tres pasos principales:
+Divide: El arreglo original se divide en dos mitades de tamaño aproximadamente igual.
+Conquista: Cada mitad se ordena recursivamente utilizando el mismo algoritmo de ordenamiento por mezcla.
+Combina: Las mitades ordenadas se fusionan para producir un único arreglo ordenado.
+----------------------------------------------------------
+
+------------------Algoritmo--------------------
+Ordenamiento por mezcla:
+  Descripción: >
+    El ordenamiento por mezcla es un algoritmo eficiente de ordenamiento
+    que sigue el paradigma de "divide y conquista". Se divide el arreglo
+    en mitades, se ordenan las mitades recursivamente y luego se combinan
+    las mitades ordenadas para producir un único arreglo ordenado.
+  Pasos:
+    - Paso: Dividir
+      Descripción: >
+        Dividir el arreglo original en dos mitades de tamaño aproximadamente igual.
+    - Paso: Conquistar
+      Descripción: >
+        Cada mitad se ordena recursivamente utilizando el mismo algoritmo de
+        ordenamiento por mezcla.
+    - Paso: Combinar
+      Descripción: >
+        Las mitades ordenadas se fusionan para producir un único arreglo ordenado.
+-------------------------------------------------------
+
+---------------------IMPLEMENTACIÓN EN JAVA------------------------
+import java.util.Scanner;
+
+public class MergeSort {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario el tamaño del arreglo
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int n = scanner.nextInt();
+        
+        int[] arr = new int[n];
+        
+        // Solicitar al usuario los elementos del arreglo
+        System.out.println("Ingrese los elementos del arreglo:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        // Llamar a la función mergeSort para ordenar el arreglo
+        mergeSort(arr);
+        
+        // Imprimir el arreglo ordenado
+        System.out.println("Arreglo ordenado:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        
+        scanner.close();
+    }
+
+    public static void mergeSort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        // Dividir el arreglo en mitades
+        int mid = arr.length / 2;
+        int[] leftHalf = new int[mid];
+        int[] rightHalf = new int[arr.length - mid];
+        System.arraycopy(arr, 0, leftHalf, 0, mid);
+        System.arraycopy(arr, mid, rightHalf, 0, arr.length - mid);
+
+        // Llamadas recursivas para ordenar cada mitad
+        mergeSort(leftHalf);
+        mergeSort(rightHalf);
+
+        // Combinar las dos mitades ordenadas
+        merge(arr, leftHalf, rightHalf);
+    }
+
+    public static void merge(int[] arr, int[] left, int[] right) {
+        int leftIndex = 0, rightIndex = 0, currentIndex = 0;
+
+        // Comparar elementos de las dos mitades y agregar al arreglo principal
+        while (leftIndex < left.length && rightIndex < right.length) {
+            if (left[leftIndex] <= right[rightIndex]) {
+                arr[currentIndex++] = left[leftIndex++];
+            } else {
+                arr[currentIndex++] = right[rightIndex++];
+            }
+        }
+
+        // Agregar los elementos restantes de la mitad izquierda, si los hay
+        while (leftIndex < left.length) {
+            arr[currentIndex++] = left[leftIndex++];
+        }
+
+        // Agregar los elementos restantes de la mitad derecha, si los hay
+        while (rightIndex < right.length) {
+            arr[currentIndex++] = right[rightIndex++];
+        }
+    }
+}
+------------------------------------------------------------------------------------------
+
+-------------Salida en pantalla----------------------
+Ingrese el tamaño del arreglo: 5
+Ingrese los elementos del arreglo:
+90
+1
+1000
+45
+78
+Arreglo ordenado:
+1 45 78 90 1000 
+----------------------------------------------------
+
+
+
+
 
