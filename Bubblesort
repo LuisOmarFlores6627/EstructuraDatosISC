@@ -1,1 +1,95 @@
+-----------------Bubble Sort--------------------------
+Bubble Sort (Ordenamiento de Burbuja) es un algoritmo de ordenamiento simple e intuitivo que recorre repetidamente la 
+lista, compara elementos adyacentes y los intercambia si están en el orden incorrecto. Este proceso se repite hasta que la lista
+esté ordenada. Aunque no es el algoritmo más eficiente para grandes conjuntos de datos, es fácil de entender e implementar.
+----------------------------------------------------
+
+-----------Algoritmo-----------------
+bubble_sort_algorithm:
+  description: >
+    El algoritmo Bubble Sort recorre repetidamente la lista,
+    compara elementos adyacentes y los intercambia si están en el orden incorrecto.
+    Este proceso se repite hasta que la lista esté ordenada.
+  input:
+    - lista: [64, 34, 25, 12, 22, 11, 90]
+  output:
+    - lista_ordenada: [11, 12, 22, 25, 34, 64, 90]
+  steps:
+    - step: 1
+      action: "Recorrer todos los elementos de la lista"
+      details:
+        loop: "desde i = 0 hasta n-1"
+        inner_loop: "desde j = 0 hasta n-i-1"
+        condition: "si lista[j] > lista[j+1]"
+        swap: "intercambiar lista[j] y lista[j+1]"
+    - step: 2
+      action: "Repetir el proceso hasta que la lista esté ordenada"
+------------------------------------------------------------------------
+
+----------------IMPLEMENTACIÓN EN JAVA-------------------------------
+import java.util.Scanner;
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar la cantidad de elementos
+        System.out.print("Ingrese la cantidad de elementos: ");
+        int n = scanner.nextInt();
+        
+        int[] arr = new int[n];
+        
+        // Solicitar los elementos al usuario
+        System.out.println("Ingrese los elementos:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        // Ordenar el arreglo usando Bubble Sort
+        bubbleSort(arr);
+        
+        // Imprimir el arreglo ordenado
+        System.out.println("El arreglo ordenado es:");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+    
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Intercambiar arr[j] y arr[j + 1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            // Si no hubo intercambios en la pasada, el arreglo ya está ordenado
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------
+
+------------------Salida en pantalla----------------------------
+Ingrese la cantidad de elementos: 4
+Ingrese los elementos:
+78
+1
+90
+100
+El arreglo ordenado es:
+1 78 90 100 
+------------------------------------------------------------------
+
+
+
 
