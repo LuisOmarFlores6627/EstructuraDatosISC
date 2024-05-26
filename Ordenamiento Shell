@@ -1,1 +1,109 @@
+----------Shell sort--------------------
+El ordenamiento Shell, también conocido como ordenamiento por incrementos decrecientes, es un algoritmo de ordenamiento 
+que mejora el rendimiento del algoritmo de inserción al reducir el número de intercambios necesarios. Funciona ordenando 
+elementos distantes entre sí y luego reduciendo gradualmente la brecha entre ellos hasta que la lista esté completamente ordenada.
+El ordenamiento Shell no garantiza el mejor rendimiento en todos los casos, pero suele ser más eficiente que el ordenamiento por 
+inserción básico y puede ser una buena opción para listas de tamaño moderado a grande.
+------------------------------------------
+
+--------------Algoritmo--------------------
+OrdenamientoShell:
+  descripcion: >
+    El Ordenamiento Shell, también conocido como ordenamiento por incrementos decrecientes, es una variante del algoritmo de inserción que mejora su eficiencia. Funciona reduciendo gradualmente la distancia entre los elementos a comparar y ordenar, utilizando una secuencia de brechas predefinidas.
+  pasos:
+    - Paso 1: Seleccionar una secuencia de brechas (generalmente basadas en la secuencia de Marcin Ciura) que se utilizarán para dividir el arreglo en subgrupos.
+    - Paso 2: Para cada brecha en la secuencia:
+      - Subpaso 1: Realizar un ordenamiento por inserción en los subgrupos generados por la brecha actual.
+      - Subpaso 2: Reducir la brecha para la siguiente iteración.
+  complejidad:
+    mejor: O(n log n) (dependiendo de la secuencia de brechas utilizada)
+    promedio: Variable, generalmente mejor que O(n^2)
+    peor: O(n^2) (dependiendo de la secuencia de brechas utilizada)
+  implementacion: |-
+    function ordenamientoShell(arr) {
+        let n = arr.length;
+        let brecha = Math.floor(n / 2); // Selección inicial de brecha
+
+        // Seleccionar una secuencia de brechas
+        while (brecha > 0) {
+            for (let i = brecha; i < n; i++) {
+                let temp = arr[i];
+                let j = i;
+
+                // Ordenamiento por inserción para subgrupos con la brecha actual
+                while (j >= brecha && arr[j - brecha] > temp) {
+                    arr[j] = arr[j - brecha];
+                    j -= brecha;
+                }
+                arr[j] = temp;
+            }
+            brecha = Math.floor(brecha / 2); // Reducir la brecha
+        }
+        return arr;
+    }
+-----------------------------------------------------------------------------
+
+---------------------IMPLEMENTACIÓN EN JAVA----------------------
+import java.util.Scanner;
+
+public class OrdenamientoShell {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int n = scanner.nextInt();
+        
+        int[] arr = new int[n];
+        
+        System.out.println("Ingrese los elementos del arreglo:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Elemento " + (i+1) + ": ");
+            arr[i] = scanner.nextInt();
+        }
+
+        ordenamientoShell(arr);
+
+        System.out.println("Arreglo ordenado:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+        scanner.close();
+    }
+
+    public static void ordenamientoShell(int[] arr) {
+        int n = arr.length;
+        int brecha = n / 2; // Selección inicial de brecha
+
+        while (brecha > 0) {
+            for (int i = brecha; i < n; i++) {
+                int temp = arr[i];
+                int j = i;
+
+                while (j >= brecha && arr[j - brecha] > temp) {
+                    arr[j] = arr[j - brecha];
+                    j -= brecha;
+                }
+                arr[j] = temp;
+            }
+            brecha /= 2; // Reducir la brecha
+        }
+    }
+}
+--------------------------------------------------------------------
+
+-------------Salida en pantalla-------------------
+Ingrese el tamaño del arreglo: 5
+Ingrese los elementos del arreglo:
+Elemento 1: 76
+Elemento 2: 345
+Elemento 3: 1
+Elemento 4: 23
+Elemento 5: 45
+Arreglo ordenado:
+1 23 45 76 345 
+------------------------------------------------------
+
+
 
